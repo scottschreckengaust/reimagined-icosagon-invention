@@ -9,8 +9,14 @@ jobs:
     steps:
       - checkout
       - run: 
+          name: Environment
+          command: env && pwd && echo $PATH && ls -lR node_modules | grep react-scripts
+      - run: 
           name: Install
           command: npx yarn install
+      - run: 
+          name: List Installation
+          command: npm list
       - run: 
           name: Verify (lint and test)
           command: npx yarn verify
