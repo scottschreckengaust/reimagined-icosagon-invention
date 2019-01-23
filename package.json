@@ -14,8 +14,8 @@
     "build": "react-scripts build",
     "test": "TZ=utc react-scripts test --coverage",
     "lint": "./node_modules/.bin/eslint ./src",
-    "verify": "TZ=utc CI=true yarn test && yarn lint",
-    "eject": "react-scripts eject"
+    "verify": "TZ=utc CI=true echo $PATH && yarn test && yarn lint",
+    "eject": "TZ=utc react-scripts eject"
   },
   "husky": {
     "hooks": {
