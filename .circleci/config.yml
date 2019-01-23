@@ -10,13 +10,13 @@ jobs:
       - checkout
       - run: 
           name: Environment
-          command: env && pwd && echo $PATH 
+          command: env && pwd && echo $PATH && ls -alR
       - run: 
           name: Install
-          command: npx yarn install
+          command: yarn install
       - run: 
           name: List Installation
           command: npm list && ls -lR .
       - run: 
           name: Verify (lint and test)
-          command: npx yarn verify
+          command: yarn verify
