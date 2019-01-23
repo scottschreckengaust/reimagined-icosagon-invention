@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/project
     docker: 
-      - image: node:10.15.0
+      - image: node:10.15.0-browsers
     steps:
       - checkout
 
@@ -29,17 +29,6 @@ jobs:
           paths:
             - node_modules
 
-#      - run: 
-#          name: Environment
-#          command: env && pwd && echo $PATH && ls -alR
-#
-#      - run: 
-#          name: Install
-#          command: yarn install
-#      - run: 
-#          name: List Installation
-#          command: npm list && ls -lR .
-#
       - run: 
           name: Verify (lint and test)
           command: yarn run verify
