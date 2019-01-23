@@ -28,7 +28,7 @@ jobs:
   build:
     docker: 
       - image: node:10.15.0
-    working_directory: /home/ubuntu/${CIRCLE_PROJECT_REPONAME}
+#    working_directory: /home/ubuntu/${CIRCLE_PROJECT_REPONAME}
     steps:
       - checkout
       - run: yarn install
