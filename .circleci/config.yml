@@ -1,22 +1,45 @@
+# https://github.com/CircleCI-Public/circleci-demo-react-native/blob/master/.circleci/config.yml
 # https://github.com/circleci/cci-demo-react/blob/master/.circleci/config.yml
 # https://medium.com/@knowbody/circleci-and-zeits-now-sh-c9b7eebcd3c1
 
 version: 2
 jobs:
   build:
+    working_directory: ~/project
     docker: 
       - image: node:10.15.0
     steps:
       - checkout
+
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
       - run: 
           name: Environment
           command: env && pwd && echo $PATH && ls -alR
-      - run: 
-          name: Install
-          command: yarn install
-      - run: 
-          name: List Installation
-          command: npm list && ls -lR .
+
+#      - run: 
+#          name: Install
+#          command: yarn install
+#      - run: 
+#          name: List Installation
+#          command: npm list && ls -lR .
+
       - run: 
           name: Verify (lint and test)
-          command: yarn verify
+          command: yarn run verify
