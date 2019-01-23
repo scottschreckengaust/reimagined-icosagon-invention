@@ -16,11 +16,11 @@ access_token=$(git config user.asana-token)
 display_branch_name=$(git config user.display-branch-name-in-comment)
 
 # defaults
-if [ $access_token == "" ]; then
+if [[ $access_token == "" ]]; then
     echo "Please Set Your Asana Token git config --global user.asana-token \"MY_ASANA_PERSONAL_ACCESS_TOKEN\" (http://app.asana.com/-/account_api)" >&2
     exit 1
 fi
-if [ "$display_branch_name" == "" ]; then
+if [[ "$display_branch_name" == "" ]]; then
 	display_branch_name=false;
 fi
 
