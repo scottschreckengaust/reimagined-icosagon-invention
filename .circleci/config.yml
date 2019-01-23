@@ -29,7 +29,11 @@ jobs:
     docker: 
       - image: node:10.15.0
 #    working_directory: /home/ubuntu/${CIRCLE_PROJECT_REPONAME}
+        environment:
+          PATH: $PATH:./node_modules/.bin
     steps:
       - checkout
+      - run: pwd
+      - run: echo $CIRCLE_PROJECT_REPONAME
       - run: yarn install
       - run: yarn verify
