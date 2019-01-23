@@ -10,12 +10,12 @@
     "yarnhook": "^0.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "TZ=utc react-scripts test --coverage",
+    "start": "./node_modules/.bin/react-scripts start",
+    "build": "./node_modules/.bin/react-scripts build",
+    "test": "TZ=utc ./node_modules/.bin/react-scripts test --coverage",
     "lint": "./node_modules/.bin/eslint ./src",
     "verify": "TZ=utc CI=true yarn test && yarn lint",
-    "eject": "react-scripts eject"
+    "eject": "./node_modules/.bin/react-scripts eject"
   },
   "husky": {
     "hooks": {
