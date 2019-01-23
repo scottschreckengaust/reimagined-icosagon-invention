@@ -1,8 +1,8 @@
 language: node_js
 
-node_js:
-  - 10.15.0
-  - node
+#node_js:
+#  - 10.15.0
+#  - node
 
 cache:
   yarn: true
@@ -21,6 +21,7 @@ before_install:
 install: true
 
 script:
+  - yarn install
   - 'if [ $TEST_SUITE = "verify" ]; then yarn run verify; fi'
 
 env:
