@@ -17,7 +17,7 @@ jobs:
       - restore_cache:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
-      - run: yarn install
+      - run: yarn install --emoji false --no-progress --verbose --scripts-prepend-node-path true
 
       - save_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -39,7 +39,7 @@ jobs:
 #      - run: 
 #          name: List Installation
 #          command: npm list && ls -lR .
-
-      - run: 
-          name: Verify (lint and test)
-          command: yarn run verify
+#
+#      - run: 
+#          name: Verify (lint and test)
+#          command: yarn run verify
