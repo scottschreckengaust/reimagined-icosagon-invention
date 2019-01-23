@@ -1,22 +1,35 @@
 # https://github.com/circleci/cci-demo-react/blob/master/.circleci/config.yml
 # https://medium.com/@knowbody/circleci-and-zeits-now-sh-c9b7eebcd3c1
 
-machine:
-  environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-  node:
-    version: 10.15.0
-
-dependencies:
-  override:
-    - yarn
-  cache_directories:
-    - ~/.cache/yarn
-
+#machine:
+#  environment:
+#    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+#  node:
+#    version: 10.15.0
+#
+#dependencies:
+#  override:
+#    - yarn
+#  cache_directories:
+#    - ~/.cache/yarn
+#
 #  pre:
 #    - yarn global add now
-
-
+#
+#
 #test:
 #  override:
 #    - yarn test
+
+
+
+version: 2
+jobs:
+  build:
+    docker: 
+      - image: node:10.15.0
+    working_directory: /home/ubuntu/${CIRCLE_PROJECT_REPONAME}
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn verify
