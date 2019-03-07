@@ -4,12 +4,12 @@ services:
   client:
     container_name: react
     build:
-      context: .
+      context: client
       dockerfile: Dockerfile
     env_file:
-      - ./.env
+      - ./client/.env
     volumes:
-      - '.:/usr/src/app'
+      - './client:/usr/src/app'
       - '/node_modules'
     ports:
       - '3000:3000'
