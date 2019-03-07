@@ -1,0 +1,26 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] "Teeny Theodora"
+
+## [0.0.1] "Teeny Theodora" - 2019-02-22
+### Added
+Initial React node v10.15.0 npm v6.41 yarn v1.13.0:
+- `npx yarn create react-app`
+
+Husky [git hooks](https://githooks.com/) with yarnhook and `pre-push` "test" and "lint" 
+- `npx yarn add husky --save-dev`
+
+Asana comments using `post-commit` script from [Spaceman-Labs/asana-post-commit](https://github.com/Spaceman-Labs/asana-post-commit)
+- `git config --local user.asana-token "MY_ASANA_PERSONAL_ACCESS_TOKEN"`  # [Asana Token](http://app.asana.com/-/account_api)
+- `git config --local user.display-branch-name-in-comment "true"`         # This is config is optional, defaults to false)
+
+Circle-CI and Travis-CI Continuous Integration Builds
+
+
+## [0.0.0] "Mathilda the Mighty" - 2019-01-23
+### Added
+Empty GitHub Repository
